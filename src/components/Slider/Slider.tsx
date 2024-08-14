@@ -9,7 +9,7 @@ const Slider = ({ accept }: { accept: () => void }) => {
 
   useEffect(() => {
     LIMIT.current = wrapper.current ? wrapper.current.offsetWidth - 80 : 0;
-  }, []);
+  }, [LIMIT]);
 
   const sliderEventsHandler = (ev: TouchEvent<HTMLDivElement>) => {
     if (wrapper.current && X !== LIMIT.current)
@@ -50,7 +50,7 @@ const Slider = ({ accept }: { accept: () => void }) => {
         onTouchMove={sliderEventsHandler}
         onTouchEnd={sliderEventsHandler}
       >
-        <img src="/images/arrow.webp" alt="" />
+        <img src="/images/arrow.webp" alt="" draggable={false} />
       </div>
     </div>
   );

@@ -1,0 +1,21 @@
+.circle_wrapper {
+  position: relative;
+  width: 300px;
+  height: 300px;
+
+  img {
+    width: 100%;
+  }
+
+  p {
+    width: 70%;
+    font-family: "Forum", serif;
+    text-align: center;
+    top: 50%;
+    translate: -50% -50%;
+    left: 50%;
+    font-size: 27px;
+    color: white;
+    position: absolute;
+  }
+}
