@@ -1,0 +1,12 @@
+.start_page {
+  display: flex;
+  align-items: center;
+  padding-top: 70%;
+  justify-content: start;
+  gap: 50px;
+  flex-direction: column;
+  width: 100dvw;
+  height: 100dvh;
+  background-image: url("../../../public/images/background.webp");
+  background-size: cover;
+}

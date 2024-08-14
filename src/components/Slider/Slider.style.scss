@@ -1,0 +1,66 @@
+.slider_container {
+  position: relative;
+  width: 90%;
+  height: 80px;
+  padding: 10px;
+  background: #d9d9d987;
+  border-radius: 30px;
+  box-shadow: 0 0 0 0 white;
+  overflow: hidden;
+  transition: background-color ease-in 500ms, box-shadow ease-in 1s 0.5s;
+
+  &.animate {
+    box-shadow: -1px -1px 200px 550px white;
+    background-color: white;
+
+    .slider {
+      background-color: white;
+
+      img {
+        opacity: 0;
+      }
+    }
+  }
+
+  .gradient {
+    top: 0;
+    left: 0;
+    position: absolute;
+    height: 100%;
+    width: 160%;
+    background-image: linear-gradient(90deg, white, transparent);
+  }
+
+  &::before {
+    content: "Окунуться в тишину";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    color: white;
+    font-family: "Great Vibes", cursive;
+    font-size: 30px;
+    text-wrap: nowrap;
+  }
+
+  .slider {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    font-weight: 800;
+    width: 60px;
+    height: 60px;
+    background: #65656521;
+    cursor: grab;
+    border-radius: 20px;
+    z-index: 10;
+
+    img {
+      width: 25px;
+      opacity: 15%;
+      transition: linear 1s;
+    }
+  }
+}

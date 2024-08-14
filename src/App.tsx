@@ -1,24 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import StartPage from "./Pages/StartPage/StartPage";
+import MainPage from "./Pages/MainPage/MainPage";
+
+type Pages = "startPage" | "mainPage";
 
 function App() {
+  const [pageName, setPageName] = useState<Pages>("startPage");
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {pageName === "startPage" ? (
+        <StartPage toMain={() => setPageName("mainPage")} />
+      ) : (
+        <MainPage />
+      )}
     </div>
   );
 }

@@ -1,0 +1,18 @@
+.main_page {
+  .benefit_wrapper {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 500dvh;
+    margin-top: 100dvh;
+    animation: benefit_appear 3s 1s ease-out forwards;
+  }
+}
+
+@keyframes benefit_appear {
+  to {
+    margin-top: 0;
+  }
+}
