@@ -1,48 +1,24 @@
 import { EventHandler, useEffect, useState } from "react";
 import BenefitCircle from "../../components/BenefitCircle/BenefitCircle";
-import "./MainPage.style.scss";
+import "./BenefitsPage.style.scss";
 import FormatBlock from "../../components/FormatBlock/FormatBlock";
+import BenefitsLine from "../../components/BenefitsLine/BenefitsLine";
 
-const MainPage = () => {
-  const [benefitsMargin, setBenefitsMargin] = useState<number>(0);
+const BenefitsPage = () => {
+  const [scroll, setScroll] = useState(0);
 
   useEffect(() => {
-    window.addEventListener("scroll", function () {
-      const scrollPosition = window.scrollY;
-      console.log(scrollPosition);
-      setBenefitsMargin(scrollPosition);
-    });
+    window.addEventListener("scroll", () => setScroll(window.scrollY));
+    return window.removeEventListener("scroll", () => console.log("scroll"));
   }, []);
 
   return (
-    <div className="main_page">
+    <div className="benefits_page">
       <div className="benefit_wrapper">
-        <div className="benefit_container">
-          <h1>Занятия в йога-клубе помогут</h1>
-          <div
-            className="benefits_line"
-            style={{ left: `calc(${benefitsMargin > 1000 ? -1000 : -benefitsMargin}px + 50%)` }}
-          >
-            <BenefitCircle
-              background="benefit_1.webp"
-              text="Снизить боли в теле: спина, шея, головные боли"
-            />
-            <BenefitCircle
-              background="benefit_2.webp"
-              text="Снизить уровень тревожности и стресса"
-            />
-            <BenefitCircle
-              background="benefit_3.webp"
-              text="Научиться управлять своим настроением
-"
-            />
-            <BenefitCircle
-              background="benefit_4.webp"
-              text="Укрепить свое тело, сделать его более сильным и выносливым"
-            />
-          </div>
-        </div>
+        <h1>Практики в йога клубе помогут</h1>
+        <BenefitsLine />
       </div>
+
       <div className="formats_wrapper">
         <div className="top_text_block">
           <h1>Формат йога-клуба</h1>
@@ -92,4 +68,4 @@ const MainPage = () => {
   );
 };
 
-export default MainPage;
+export default BenefitsPage;

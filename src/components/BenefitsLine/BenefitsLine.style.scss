@@ -1,0 +1,14 @@
+.benefits_line_container {
+  display: flex;
+  position: relative;
+  overflow: auto;
+  overflow-y: hidden;
+
+  .benefits_line {
+    display: flex;
+    margin: -10px;
+    gap: 0;
+    opacity: 0;
+    animation: benefits_line_appear 1s 2s ease-out forwards;
+  }
+}

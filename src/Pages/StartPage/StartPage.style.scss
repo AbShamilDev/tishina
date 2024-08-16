@@ -1,12 +1,114 @@
 .start_page {
+  position: relative;
   display: flex;
   align-items: center;
-  padding-top: 42dvh;
+  padding-top: 40lvh;
   justify-content: start;
-  gap: 50px;
   flex-direction: column;
   width: 100dvw;
-  height: 100dvh;
-  background-image: url("../../../public/images/background.webp");
-  background-size: cover;
+  height: 1000px;
+  background-image: url("../../../public/images/start_background.png");
+  background-size: 100% 100%;
+  color: white;
+
+  .main_text {
+    font-family: Fira Sans, serif;
+    font-weight: 500;
+    font-size: 50px;
+    opacity: 0;
+    animation: info_block_appear 1.5s 1.5s ease-in-out forwards;
+  }
+
+  .yclub_line,
+  .bottom_line {
+    position: absolute;
+    border-bottom: 1px solid white;
+    animation: line_appear 1s 0.4s ease forwards;
+  }
+
+  .yclub_line {
+    padding-right: 0;
+    padding-bottom: 5px;
+    left: 0;
+    top: 33.5lvh;
+    height: 33px;
+    text-align: right;
+    width: 0;
+    text-wrap: nowrap;
+
+    p {
+      font-family: Fira Code, serif;
+      font-size: 20px;
+      height: 26px;
+      overflow: hidden;
+      padding-top: 26px;
+      animation: yclub_appear 0.5s 1.2s ease-in-out forwards;
+    }
+  }
+
+  .bottom_line {
+    top: 50lvh;
+    width: 0;
+    right: 0;
+  }
+
+  .info_block {
+    width: 90%;
+    margin-top: 50px;
+    text-align: center;
+    font-family: Fira Code, serif;
+    font-size: 13px;
+    background-color: #07130acc;
+    border-radius: 25px;
+    color: #f0edc7;
+    padding: 20px 25px;
+    opacity: 0;
+    animation: info_block_appear 1s 2s ease forwards;
+    box-shadow: 0 5px 12px 7px #00000091;
+  }
+
+  .who_are {
+    display: flex;
+    width: 100%;
+    margin-top: 240px;
+    margin-bottom: 20px;
+    align-items: center;
+    padding: 0 50px;
+    justify-content: space-between;
+
+    img {
+      filter: drop-shadow(3px 4px 10px 0 #0008);
+      width: 123px;
+    }
+
+    p {
+      font-family: Inter, serif;
+      font-weight: lighter;
+      font-size: 12px;
+      text-align: center;
+      width: 50%;
+    }
+  }
+  .story_text {
+    width: 83%;
+  }
+}
+
+@keyframes yclub_appear {
+  to {
+    padding-top: 0px;
+  }
+}
+
+@keyframes line_appear {
+  to {
+    width: calc(55%);
+    padding-right: 25px;
+  }
+}
+
+@keyframes info_block_appear {
+  to {
+    opacity: 100%;
+  }
 }
