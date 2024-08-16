@@ -3,12 +3,26 @@
   position: relative;
   overflow: auto;
   overflow-y: hidden;
+  margin-top: 20px;
+
+  &::-webkit-scrollbar {
+    opacity: 0;
+  }
 
   .benefits_line {
+    padding: 20px 0;
     display: flex;
     margin: -10px;
     gap: 0;
     opacity: 0;
-    animation: benefits_line_appear 1s 2s ease-out forwards;
+    animation: 1s 0.5s ease-out forwards;
+  }
+}
+
+@keyframes benefits_line_appear {
+  to {
+    margin: 0 12.5vw;
+    gap: 30px;
+    opacity: 100%;
   }
 }

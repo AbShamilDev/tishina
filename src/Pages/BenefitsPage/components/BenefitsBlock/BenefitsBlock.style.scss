@@ -1,0 +1,37 @@
+.benefit_wrapper {
+  overflow: hidden;
+  background: linear-gradient(#122004, #111f05);
+
+  h1 {
+    font-family: Fira Sans Extra Condensed, serif;
+    color: #ffffff;
+    font-weight: 300;
+    font-size: 28px;
+    opacity: 0;
+    text-align: center;
+    animation: 1s ease forwards;
+  }
+
+  &.active {
+    h1 {
+      animation-name: h1_appear;
+    }
+
+    .benefits_line {
+      animation-name: benefits_line_appear;
+
+      .circle_wrapper {
+        .circle_border {
+          animation-name: start_border_rotate;
+        }
+      }
+    }
+  }
+}
+
+@keyframes h1_appear {
+  to {
+    margin-top: 32px;
+    opacity: 100%;
+  }
+}

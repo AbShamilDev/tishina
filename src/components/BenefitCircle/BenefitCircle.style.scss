@@ -3,6 +3,9 @@
   width: 300px;
   height: 300px;
 
+  .circle_border {
+    animation: 1s 0.5s ease;
+  }
   img {
     top: 50%;
     left: 50%;
@@ -13,13 +16,23 @@
 
   p {
     width: 70%;
-    font-family: "Forum", serif;
+    font-family: Fira Sans Extra Condensed, serif;
     text-align: center;
     top: 50%;
     translate: -50% -50%;
     left: 50%;
     font-size: 27px;
-    color: white;
+    color: #ede9bd;
     position: absolute;
+    white-space: pre-wrap;
+  }
+}
+
+@keyframes start_border_rotate {
+  from {
+    transform: rotate(10deg);
+  }
+  to {
+    transform: rotate(0deg);
   }
 }

@@ -1,19 +1,45 @@
 import "./BenefitsLine.style.scss";
 import BenefitCircle from "../BenefitCircle/BenefitCircle";
+import { useState } from "react";
 
 const BenefitsLine = () => {
+  const [scroll, setScroll] = useState<number>(0);
+  console.log("scroll");
   return (
-    <div className="benefits_line_container">
+    <div
+      className="benefits_line_container"
+      onScroll={(ev) => {
+        const target = ev.target as HTMLElement;
+        setScroll(target.scrollLeft / 10);
+      }}
+    >
       <div className="benefits_line">
         <BenefitCircle
           background="benefit_1.png"
-          text="Снизить боли в теле: спина, шея, головные боли"
+          text={`Снизить уровень тревожности и \nстресса`}
+          rotate={scroll}
         />
-        <BenefitCircle background="benefit_2.webp" text="Снизить уровень тревожности и стресса" />
-        <BenefitCircle background="benefit_3.webp" text="Научиться управлять своим настроением" />
         <BenefitCircle
-          background="benefit_4.webp"
-          text="Укрепить свое тело, сделать его более сильным и выносливым"
+          background="benefit_2.png"
+          text=" Соединиться с собой
+ и почувствовать момент здесь 
+и сейчас"
+          rotate={scroll}
+        />
+        <BenefitCircle
+          background="benefit_3.png"
+          text="Снизить боли в теле и снять зажимы"
+          rotate={scroll}
+        />
+        <BenefitCircle
+          background="benefit_4.png"
+          text="Добавить в жизнь больше вдохновения и счастья"
+          rotate={scroll}
+        />
+        <BenefitCircle
+          background="benefit_5.png"
+          text="Стать выносливее и сильнее"
+          rotate={scroll}
         />
       </div>
     </div>

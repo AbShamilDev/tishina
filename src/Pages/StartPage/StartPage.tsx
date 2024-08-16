@@ -6,7 +6,7 @@ const text =
   "Я всей душой люблю йогу, для мне это один лучших способов достичь тишины в голове. Тот самый момент, когда все мысли в голове затихают и ты просто созерцаешь всё вокруг. И я хочу поделиться с миром этой тишиной! Добро пожаловать!";
 
 const StartPage = () => {
-  const storyTextRef = useRef(null);
+  const storyTextRef = useRef<HTMLDivElement>(null);
 
   return (
     <div className="start_page">
