@@ -3,10 +3,14 @@
   background: url(../../../../../public/images/3background.png);
   background-size: cover;
 
-  .formats_container {
+  .formats_container,
+  .top_text_block {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .formats_container {
     gap: 30px;
     width: 100%;
     padding: 10px 18px;
@@ -14,19 +18,22 @@
     animation: 1s ease forwards;
 
     .top_text_block {
-      font-family: Fira Sans Extra Condensed, serif;
-      color: #fff;
-      padding-top: 10lvh;
+      font-family: Fira Sans, serif;
+      color: #ede9bd;
+      padding-top: 100px;
       text-align: center;
 
       h1 {
-        font-weight: normal;
-        font-size: 32px;
+        font-weight: 400;
+        font-size: 35px;
       }
 
       p {
+        width: 90%;
+        font-family: Fira Code, serif;
+        font-weight: 300;
         margin-top: 10px;
-        font-size: 24px;
+        font-size: 16px;
       }
     }
 
@@ -37,7 +44,11 @@
 
   &.active {
     .formats_container {
-      animation-name: info_block_appear;
+      animation-name: opacity_with_margin;
+
+      .format_wrapper {
+        animation-name: opacity_with_margin;
+      }
     }
   }
 }

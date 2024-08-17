@@ -16,13 +16,13 @@ const BenefitsPage = () => {
 
   useEffect(() => {
     if (!showBenefits && benefitsRef.current) {
-      if (scroll + window.screen.height * (2 / 3) > benefitsRef.current.offsetTop) {
+      if (scroll + window.screen.height * (1 / 2) > benefitsRef.current.offsetTop) {
         setShowBenefits(true);
         console.log("show benefits");
       }
     }
     if (!showFormats && formatsRef.current) {
-      if (scroll + window.screen.height * (2 / 3) > formatsRef.current.offsetTop) {
+      if (scroll + window.screen.height * (1 / 2) > formatsRef.current.offsetTop) {
         setShowFormats(true);
         console.log("show formats");
       }

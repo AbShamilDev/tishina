@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import TextTyper from "../../components/TextTyper/TextTyper";
 import "./StartPage.style.scss";
 
