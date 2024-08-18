@@ -1,6 +1,6 @@
+import BenefitsLine from "../../components/BenefitsLine/BenefitsLine";
 import "./BenefitsBlock.style.scss";
 import { forwardRef, memo } from "react";
-import BenefitsLine from "../../../../components/BenefitsLine/BenefitsLine";
 
 const BenefitsBlock = memo(
   forwardRef<HTMLDivElement, { active: boolean }>(function BenefitsBlock({ active }, ref) {
