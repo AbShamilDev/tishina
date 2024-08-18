@@ -1,4 +1,4 @@
-import { forwardRef, memo, useRef } from "react";
+import { forwardRef, memo } from "react";
 import TextTyper from "../../components/TextTyper/TextTyper";
 import "./StartSection.style.scss";
 

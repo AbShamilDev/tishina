@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import "./BenefitCircle.style.scss";
 
 interface CircleProps {

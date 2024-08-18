@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import "./App.css";
 import StartSection from "./sections/StartSection/StartSection";
 import BenefitsSection from "./sections/BenefitsSection/BenefitsSection";
 import FormatsSection from "./sections/FormatsSection/FormatsSection";
