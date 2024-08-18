@@ -1,13 +1,13 @@
 import TryItBackground from "../../components/TryItBackground/TryItBackground";
-import "./TryItBlock.style.scss";
+import "./TryItSection.style.scss";
 import { forwardRef, RefObject } from "react";
 
-interface TryItBlockProps {
+interface TryItSectionProps {
   active: boolean;
   scroll: number;
 }
 
-const TryItBlock = forwardRef<HTMLDivElement, TryItBlockProps>(({ active, scroll }, ref) => {
+const TryItSection = forwardRef<HTMLDivElement, TryItSectionProps>(({ active, scroll }, ref) => {
   const reff = ref as RefObject<HTMLDivElement>;
 
   return (
@@ -26,4 +26,4 @@ const TryItBlock = forwardRef<HTMLDivElement, TryItBlockProps>(({ active, scroll
   );
 });
 
-export default TryItBlock;
+export default TryItSection;

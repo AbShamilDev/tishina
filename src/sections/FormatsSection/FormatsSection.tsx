@@ -1,9 +1,9 @@
 import FormatBlock, { FormatProps } from "../../components/FormatBlock/FormatBlock";
-import "./FormatsBlock.style.scss";
+import "./FormatsSection.style.scss";
 import { forwardRef, memo, useRef } from "react";
 
-const FormatsBlock = memo(
-  forwardRef<HTMLDivElement, { active: boolean }>(function FormatsBlock({ active }, ref) {
+const FormatsSection = memo(
+  forwardRef<HTMLDivElement, { active: boolean }>(function FormatsSection({ active }, ref) {
     const formats = useRef<FormatProps[]>([
       {
         label: "7-15 минут простые и легкие",
@@ -46,7 +46,7 @@ const FormatsBlock = memo(
     ]);
 
     return (
-      <div className={`formats_wrapper ${active ? "active" : ""}`} ref={ref}>
+      <section className={`formats_wrapper ${active ? "active" : ""}`} ref={ref}>
         <div className="formats_container">
           <div className="top_text_block">
             <h1>Формат йога-клуба</h1>
@@ -59,9 +59,9 @@ const FormatsBlock = memo(
 
           <img src="/images/yogaman.png" alt="" />
         </div>
-      </div>
+      </section>
     );
   })
 );
 
-export default FormatsBlock;
+export default FormatsSection;
