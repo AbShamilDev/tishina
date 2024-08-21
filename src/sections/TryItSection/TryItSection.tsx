@@ -1,3 +1,4 @@
+import { track } from "@vercel/analytics/react";
 import TryItBackground from "../../components/TryItBackground/TryItBackground";
 import "./TryItSection.style.scss";
 import { forwardRef, RefObject } from "react";
@@ -18,7 +19,12 @@ const TryItSection = forwardRef<HTMLDivElement, TryItSectionProps>(({ active, sc
           собой, глубины и осознанности.
         </p>
 
-        <a href="https://app.leadteh.ru/w/cbj51">Попробовать бесплатно</a>
+        <a
+          href="https://app.leadteh.ru/w/cbj51"
+          onClick={() => track("click on link", {}, { flags: ["try-it-now"] })}
+        >
+          Попробовать бесплатно
+        </a>
       </div>
 
       <TryItBackground scroll={scroll} offsetTop={reff.current ? reff.current.offsetTop : 0} />
