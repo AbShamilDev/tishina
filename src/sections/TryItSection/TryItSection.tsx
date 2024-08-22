@@ -13,23 +13,12 @@ const TryItSection = forwardRef<HTMLDivElement, TryItSectionProps>(({ active, sc
   const postUserMeta = async () => {
     const navigator = window.navigator;
     const date = new Date();
-    let ip = "";
     const durationTime = new Date(
       date.getTime() - new Date(JSON.parse(localStorage.getItem("open_time")!)).getTime()
     );
-    const url = "https://1d682d64f09a807d.mokky.dev/redirects"; // Замените на ваш URL
-
-    await fetch("https://api.ipify.org?format=json")
-      .then((response) => response.json())
-      .then((data) => {
-        ip = data.ip;
-      })
-      .catch((error) => {
-        console.log("Error:", error);
-      });
-
+    const url = "https://1d682d64f09a807d.mokky.dev/redirects";
     const data = {
-      ip: ip,
+      ip: "",
       referrer: document.referrer,
       dateTime: `${date.getDate()}.${
         date.getMonth() + 1
@@ -40,24 +29,36 @@ const TryItSection = forwardRef<HTMLDivElement, TryItSectionProps>(({ active, sc
       userAgent: navigator.userAgent,
     };
 
-    await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log("Success:", data);
+    await fetch("https://api.ipify.org?format=json")
+      .then((response) => response.json())
+      .then((resData) => {
+        data.ip = resData.ip;
+
+        fetch(url, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            window.location.href = "https://app.leadteh.ru/w/cbj51";
+            return response.json();
+          })
+          .then((data) => {
+            console.log("Success:", data);
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            window.location.href = "https://app.leadteh.ru/w/cbj51";
+          });
       })
       .catch((error) => {
-        console.error("Error:", error);
+        console.log("Error:", error);
+        window.location.href = "https://app.leadteh.ru/w/cbj51";
       });
   };
 
@@ -70,8 +71,8 @@ const TryItSection = forwardRef<HTMLDivElement, TryItSectionProps>(({ active, sc
         </p>
 
         <a
-          href="https://app.leadteh.ru/w/cbj51"
-          onClick={() => {
+          onClick={(ev) => {
+            ev.preventDefault();
             postUserMeta();
           }}
         >
