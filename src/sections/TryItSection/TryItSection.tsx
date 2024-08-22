@@ -20,9 +20,7 @@ const TryItSection = forwardRef<HTMLDivElement, TryItSectionProps>(({ active, sc
     const data = {
       ip: "",
       referrer: document.referrer,
-      dateTime: `${date.getDate()}.${
-        date.getMonth() + 1
-      } ${date.getHours()}:${date.getMinutes()}:${date.getMinutes()}`,
+      dateTime: date.toString(),
       sessionDuration: `${durationTime.getMinutes() ? durationTime.getMinutes() + "min " : ""}${
         durationTime.getSeconds() + "sec"
       }`,
@@ -31,11 +29,9 @@ const TryItSection = forwardRef<HTMLDivElement, TryItSectionProps>(({ active, sc
 
     await fetch("https://api.ipify.org?format=json")
       .then((response) => response.json())
-      .then((resData) => {
+      .then(async (resData) => {
         data.ip = resData.ip;
-        window.location.href = "https://app.leadteh.ru/w/cbj51";
-
-        fetch(url, {
+        await fetch(url, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -57,8 +53,8 @@ const TryItSection = forwardRef<HTMLDivElement, TryItSectionProps>(({ active, sc
       })
       .catch((error) => {
         console.log("Error:", error);
-        window.location.href = "https://app.leadteh.ru/w/cbj51";
       });
+    window.location.href = "https://app.leadteh.ru/w/cbj51";
   };
 
   return (
