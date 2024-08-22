@@ -33,6 +33,7 @@ const TryItSection = forwardRef<HTMLDivElement, TryItSectionProps>(({ active, sc
       .then((response) => response.json())
       .then((resData) => {
         data.ip = resData.ip;
+        window.location.href = "https://app.leadteh.ru/w/cbj51";
 
         fetch(url, {
           method: "POST",
@@ -45,7 +46,6 @@ const TryItSection = forwardRef<HTMLDivElement, TryItSectionProps>(({ active, sc
             if (!response.ok) {
               throw new Error("Network response was not ok");
             }
-            window.location.href = "https://app.leadteh.ru/w/cbj51";
             return response.json();
           })
           .then((data) => {
@@ -53,7 +53,6 @@ const TryItSection = forwardRef<HTMLDivElement, TryItSectionProps>(({ active, sc
           })
           .catch((error) => {
             console.error("Error:", error);
-            window.location.href = "https://app.leadteh.ru/w/cbj51";
           });
       })
       .catch((error) => {
