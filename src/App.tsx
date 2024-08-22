@@ -16,6 +16,7 @@ function App() {
   const tryItRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    localStorage.setItem("open_time", JSON.stringify(new Date()));
     window.addEventListener("scroll", () => setScroll(window.scrollY));
     return window.removeEventListener("scroll", () => setScroll(window.scrollY));
   }, []);
