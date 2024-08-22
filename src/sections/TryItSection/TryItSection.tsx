@@ -71,8 +71,7 @@ const TryItSection = forwardRef<HTMLDivElement, TryItSectionProps>(({ active, sc
 
         <a
           href="https://app.leadteh.ru/w/cbj51"
-          onClick={(ev) => {
-            ev.preventDefault();
+          onClick={() => {
             postUserMeta();
           }}
         >
