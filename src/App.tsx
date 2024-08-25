@@ -1,8 +1,12 @@
-import { useEffect, useRef, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import StartSection from "./sections/StartSection/StartSection";
 import BenefitsSection from "./sections/BenefitsSection/BenefitsSection";
 import FormatsSection from "./sections/FormatsSection/FormatsSection";
 import TryItSection from "./sections/TryItSection/TryItSection";
+
+interface showBlockFcnType {
+  (offsetTop: number, setShowFcn: Dispatch<SetStateAction<boolean>>, screenFraction: number): void;
+}
 
 function App() {
   const [scroll, setScroll] = useState<number>(0);
@@ -21,29 +25,20 @@ function App() {
     return window.removeEventListener("scroll", () => setScroll(window.scrollY));
   }, []);
 
+  const showBlock: showBlockFcnType = (offsetTop, setShowFcn, screenFraction) => {
+    scroll + window.screen.height * screenFraction > offsetTop && setShowFcn(true);
+  };
+
   useEffect(() => {
-    if (!showAboutMe && aboutMeRef.current) {
-      if (scroll + window.screen.height * (1 / 3) > aboutMeRef.current.offsetTop) {
-        setShowAboutMe(true);
-        console.log("show aboutMe");
-      }
-    } else if (!showBenefits && benefitsRef.current) {
-      if (scroll + window.screen.height * (1 / 2) > benefitsRef.current.offsetTop) {
-        setShowBenefits(true);
-        console.log("show benefits");
-      }
-    } else if (!showFormats && formatsRef.current) {
-      if (scroll + window.screen.height * (1 / 2) > formatsRef.current.offsetTop) {
-        setShowFormats(true);
-        console.log("show formats");
-      }
-    } else if (!showTryIt && tryItRef.current) {
-      if (scroll + window.screen.height * 0.4 > tryItRef.current.offsetTop) {
-        setShowTryIt(true);
-        console.log("show tryIt");
-      }
-    }
-  }, [scroll, benefitsRef, formatsRef]);
+    if (!showAboutMe && aboutMeRef.current)
+      showBlock(aboutMeRef.current.offsetTop, setShowAboutMe, 1 / 3);
+    else if (!showBenefits && benefitsRef.current)
+      showBlock(benefitsRef.current.offsetTop, setShowBenefits, 1 / 2);
+    else if (!showFormats && formatsRef.current)
+      showBlock(formatsRef.current.offsetTop, setShowFormats, 1 / 2);
+    else if (!showTryIt && tryItRef.current)
+      showBlock(tryItRef.current.offsetTop, setShowTryIt, 0.4);
+  }, [scroll, aboutMeRef, benefitsRef, formatsRef, tryItRef]);
 
   return (
     <div className="benefits_page">

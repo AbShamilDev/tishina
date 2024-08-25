@@ -1,0 +1,29 @@
+.try_it_container {
+  width: 80%;
+  gap: 50px;
+  margin-top: 50px;
+  opacity: 0;
+  animation: 1s ease forwards;
+
+  p {
+    font-family: Fira Sans, serif;
+    font-size: 14px;
+    font-weight: 300;
+    text-align: center;
+    color: white;
+  }
+
+  a {
+    font-family: Fira Sans Extra Condensed, serif;
+    color: #ede9bd;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 9px 41px;
+    border-radius: 100px;
+    font-weight: 400;
+    border: none;
+    box-shadow: 1px 4px 4px 3px #ffffff4d;
+    background-color: #122004bf;
+    cursor: pointer;
+  }
+}

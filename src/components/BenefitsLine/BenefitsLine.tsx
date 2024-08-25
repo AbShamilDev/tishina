@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const BenefitsLine = () => {
   const [scroll, setScroll] = useState<number>(0);
-  console.log("scroll");
+
   return (
     <div
       className="benefits_line_container"
