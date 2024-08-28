@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./TryItBackground.style.scss";
 
 interface TryItBackgndProps {
@@ -7,6 +7,112 @@ interface TryItBackgndProps {
 }
 
 const TryItBackground = ({ scroll, offsetTop }: TryItBackgndProps) => {
+  const scale = window.innerWidth > 420 ? window.innerWidth / 420 : 1;
+  const images = useRef<
+    {
+      id: string;
+      pos: "left" | "middle" | "right";
+      src: string;
+      layer: number;
+    }[]
+  >([
+    {
+      id: "c",
+      pos: "right",
+      src: "collage3.png",
+      layer: 8,
+    },
+    {
+      id: "e",
+      pos: "middle",
+      src: "collage5.png",
+      layer: 8,
+    },
+    {
+      id: "d",
+      pos: "left",
+      src: "collage4.png",
+      layer: 7,
+    },
+    {
+      id: "n",
+      pos: "left",
+      src: "collage14.png",
+      layer: 7,
+    },
+    {
+      id: "o",
+      pos: "middle",
+      src: "collage15.png",
+      layer: 6,
+    },
+    {
+      id: "f",
+      pos: "right",
+      src: "collage6.png",
+      layer: 6,
+    },
+    {
+      id: "g",
+      pos: "middle",
+      src: "collage7.png",
+      layer: 6,
+    },
+    {
+      id: "l",
+      pos: "left",
+      src: "collage12.png",
+      layer: 5,
+    },
+    {
+      id: "i",
+      pos: "left",
+      src: "collage9.png",
+      layer: 4,
+    },
+    {
+      id: "k",
+      pos: "middle",
+      src: "collage11.png",
+      layer: 3,
+    },
+    {
+      id: "p",
+      pos: "right",
+      src: "collage16.png",
+      layer: 2,
+    },
+    {
+      id: "h",
+      pos: "right",
+      src: "collage8.png",
+      layer: 2,
+    },
+    {
+      id: "m",
+      pos: "right",
+      src: "collage13.png",
+      layer: 1,
+    },
+    {
+      id: "b",
+      pos: "middle",
+      src: "collage2.png",
+      layer: 1,
+    },
+    {
+      id: "a",
+      pos: "left",
+      src: "collage1.png",
+      layer: 0,
+    },
+    {
+      id: "j",
+      pos: "right",
+      src: "collage10.png",
+      layer: 0,
+    },
+  ]);
   const [Y, setY] = useState<number>(0);
   const layers = [
     Y * 0.7,
@@ -26,102 +132,18 @@ const TryItBackground = ({ scroll, offsetTop }: TryItBackgndProps) => {
 
   return (
     <div className="try_it_background">
-      <img
-        className="collage_image c  right"
-        src="/images/collage3.png"
-        alt="collage3.png"
-        style={{ transform: `translateY(${layers[8]}px)` }}
-      />
-      <img
-        className="collage_image e middle"
-        src="/images/collage5.png"
-        alt="collage5.png"
-        style={{ transform: `translateY(${layers[8]}px) translateX(-50%)` }}
-      />
-      <img
-        className="collage_image n left"
-        src="/images/collage14.png"
-        alt="collage14.png"
-        style={{ transform: `translateY(${layers[7]}px)` }}
-      />
-      <img
-        className="collage_image d left"
-        src="/images/collage4.png"
-        alt="collage4.png"
-        style={{ transform: `translateY(${layers[7]}px)` }}
-      />
-      <img
-        className="collage_image o middle"
-        src="/images/collage15.png"
-        alt="collage15.png"
-        style={{ transform: `translateY(${layers[6]}px) translateX(-50%)` }}
-      />
-      <img
-        className="collage_image g middle"
-        src="/images/collage7.png"
-        alt="collage7.png"
-        style={{ transform: `translateY(${layers[6]}px) translateX(-50%)` }}
-      />
-      <img
-        className="collage_image f right"
-        src="/images/collage6.png"
-        alt="collage6.png"
-        style={{ transform: `translateY(${layers[6]}px)` }}
-      />
-      <img
-        className="collage_image l left"
-        src="/images/collage12.png"
-        alt="collage12.png"
-        style={{ transform: `translateY(${layers[5]}px)` }}
-      />
-      <img
-        className="collage_image i left"
-        src="/images/collage9.png"
-        alt="collage9.png"
-        style={{ transform: `translateY(${layers[4]}px)` }}
-      />
-      <img
-        className="collage_image k middle"
-        src="/images/collage11.png"
-        alt="collage11.png"
-        style={{ transform: `translateY(${layers[3]}px) translateX(-50%)` }}
-      />
-      <img
-        className="collage_image p right"
-        src="/images/collage16.png"
-        alt="collage16.png"
-        style={{ transform: `translateY(${layers[2]}px)` }}
-      />
-      <img
-        className="collage_image h right"
-        src="/images/collage8.png"
-        alt="collage8.png"
-        style={{ transform: `translateY(${layers[2]}px)` }}
-      />
-      <img
-        className="collage_image m right"
-        src="/images/collage13.png"
-        alt="collage13.png"
-        style={{ transform: `translateY(${layers[1]}px)` }}
-      />
-      <img
-        className="collage_image b middle"
-        src="/images/collage2.png"
-        alt="collage2.png"
-        style={{ transform: `translateY(${layers[1]}px) translateX(-50%)` }}
-      />
-      <img
-        className="collage_image j right"
-        src="/images/collage10.png"
-        alt="collage10.png"
-        style={{ transform: `translateY(${layers[0]}px)` }}
-      />
-      <img
-        className="collage_image a left"
-        src="/images/collage1.png"
-        alt="collage1.png"
-        style={{ transform: `translateY(${layers[0]}px)` }}
-      />
+      {images.current.map((image) => (
+        <img
+          key={image.id}
+          className={`collage_image ${image.id} ${image.pos}`}
+          src={`/images/${image.src}`}
+          style={{
+            transform: `translateY(${layers[image.layer] * scale}px) ${
+              image.pos === "middle" ? "translateX(-50%)" : ""
+            } scale(${scale})`,
+          }}
+        />
+      ))}
     </div>
   );
 };

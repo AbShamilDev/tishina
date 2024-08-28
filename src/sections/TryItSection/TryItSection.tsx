@@ -13,10 +13,6 @@ const TryItSection = forwardRef<HTMLDivElement, TryItSectionProps>(({ active, sc
 
   return (
     <section className={`try_it_wrapper ${active ? "active" : ""}`} ref={ref}>
-      <p>
-        Подписка на этот клуб - это подписка на жизнь, наполненную эстетикой тишины, связи с собой,
-        глубины и осознанности.
-      </p>
       <TryItLink />
       <TryItBackground scroll={scroll} offsetTop={reff.current ? reff.current.offsetTop : 0} />
     </section>
