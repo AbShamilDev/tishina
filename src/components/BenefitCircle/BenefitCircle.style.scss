@@ -4,7 +4,7 @@
   height: 300px;
 
   .circle_border {
-    animation: 1s 0.5s ease;
+    animation: 1.5s 0.5s ease;
   }
   img {
     top: 50%;
@@ -30,7 +30,7 @@
 
 @keyframes start_border_rotate {
   from {
-    transform: rotate(10deg);
+    transform: rotate(40deg);
   }
   to {
     transform: rotate(0deg);

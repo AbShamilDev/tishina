@@ -10,7 +10,6 @@ const TryItLink = memo(() => {
     );
     const url = "https://1d682d64f09a807d.mokky.dev/redirects";
     const data = {
-      ip: "",
       referrer: document.referrer,
       dateTime: date.toString(),
       sessionDuration: `${durationTime.getMinutes() ? durationTime.getMinutes() + "min " : ""}${
@@ -19,34 +18,26 @@ const TryItLink = memo(() => {
       userAgent: navigator.userAgent,
     };
 
-    await fetch("https://api.ipify.org?format=json")
-      .then((response) => response.json())
-      .then(async (resData) => {
-        data.ip = resData.ip;
-        await fetch(url, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        })
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error("Network response was not ok");
-            }
-            return response.json();
-          })
-          .then((data) => {
-            console.log("Success:", data);
-          })
-          .catch((error) => {
-            console.error("Error:", error);
-          });
+    await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Success:", data);
       })
       .catch((error) => {
-        console.log("Error:", error);
+        console.error("Error:", error);
       });
-    window.location.href = "https://app.leadteh.ru/w/cbj51";
+    window.location.href = "https://t.me/+BUL26jEUomFjOTZi";
   };
 
   return (
@@ -56,13 +47,15 @@ const TryItLink = memo(() => {
         глубины и осознанности.
       </p>
 
+      <p className="free">Бесплатная первая неделя подписки</p>
+
       <a
         onClick={(ev) => {
           ev.preventDefault();
           postUserMeta();
         }}
       >
-        Попробовать бесплатно
+        Попробовать
       </a>
     </div>
   );
